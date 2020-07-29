@@ -21,11 +21,11 @@ class GamesController < ApplicationController
     end
 
     def edit 
-        @game = Game.find_by(id: params[:id])
+        find_game
     end
 
     def update 
-        @game = Game.find_by(:id params[:id])
+        find_game
         if @game.user == current_user 
             @game.update(game_params)
             redirect_to game_path(@game)
