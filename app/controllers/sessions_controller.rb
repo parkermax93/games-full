@@ -20,23 +20,20 @@ class SessionsController < ApplicationController
         redirect_to '/login'
     end
 
-    # def omniauth
-    #     user = User.from_omniauth(request.env['omniauth.auth'])
-    #         if user.valid?
-    #         session[:user_id] = user.id 
-    #         redirect_to user_path(user)
-    #         else
-    #             redirect_to '/login'
-    #         end
-    #     end
-    # end
+    def omniauth
+        user = User.from_omniauth(request.env['omniauth.auth'])
+            if user.valid?
+            session[:user_id] = user.id 
+            redirect_to user_path(user)
+            else
+                redirect_to '/login'
+            end
+        end
+    end
 
     private 
 
-    # def auth 
-    #     request.env['omniauth.auth']
-    # end
-end
-
-
+    def auth 
+        request.env['omniauth.auth']
+    end
 end

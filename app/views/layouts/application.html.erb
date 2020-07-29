@@ -10,6 +10,17 @@
   </head>
 
   <body>
+  <div class="wrapper" role="navigation">
+      <div class="container">
+        <% if !current_user %>
+          <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
+          <a class="navbar-brand" href="<%= new_user_path %>"/>Sign Up</a>
+          <%= link_to "Sign in", login_path, class:"navbar-brand" %>
+          <% else %>
+          <a class="navbar-brand" href="<%= games_path %>"/>Home</a>
+          <%= link_to "#{current_user.username}'s Profile", user_path(current_user), class:"navbar-brand"%>
+          <%= link_to "Sign Out", logout_path, class:"navbar-brand",method:'delete' %>
+        <% end %>
     <%= yield %>
   </body>
 </html>
