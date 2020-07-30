@@ -47,7 +47,7 @@ class GamesController < ApplicationController
     private 
 
     def game_params 
-        params.require(:game).permit(:name, :developer, :release_year, :description, :genre_id, :uid)
+        params.require(:game).permit(:name, :developer, :release_year, :description, :genre_id, :genre, :id, :uid)
     end
 
     def redirect_if_not_user 

@@ -1,3 +1,5 @@
 <h1> Your Games and Reviews</h1>
-
+<% @user.games.each do |game|%>
+    <%= game.name %>
+<%end%>
 <p><%= link_to "Create A Game", new_game_path %></p>
