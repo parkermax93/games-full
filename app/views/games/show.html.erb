@@ -1,4 +1,13 @@
 <h1><%= @game.name %></h1>
-<h2><%= @game.genre.name %></h2>
-<h3><%= @game.developer %></h3>
-<%= @game.description %>
+
+<h2><%= @game.release_year %></h2>
+
+<b>Genre: </b> <%= @game.genre.name %><br><br>
+
+<b>Developer: </b> <%= @game.developer %><br><br>
+
+<b>Info: </b> <%= @game.description %><br><br>
+
+<%= link_to 'Edit', [:edit, @game] %>
+
+<%= link_to 'Delete', @game, method: :delete, data: { confirm: 'Are you sure?' } %>
