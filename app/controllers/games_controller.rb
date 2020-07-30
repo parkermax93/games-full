@@ -11,6 +11,7 @@ class GamesController < ApplicationController
 
     def create 
         @game = current_user.games.build(game_params)
+        @genres = Genre.all
         if @game.valid?
             @game.save
             redirect_to game_path(@game)
@@ -46,7 +47,7 @@ class GamesController < ApplicationController
     private 
 
     def game_params 
-        params.require(:game).permid(:name, :developer, :release_year, :description, :genre_id)
+        params.require(:game).permit(:name, :developer, :release_year, :description, :genre_id, :uid)
     end
 
     def redirect_if_not_user 
