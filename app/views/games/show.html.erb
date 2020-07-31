@@ -11,12 +11,13 @@
 <%= link_to 'Edit Game', [:edit, @game] %>
 
 <%= link_to 'Delete Game', @game, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+
 <%= link_to "Add A Review", new_game_comment_path(@game) %><br><br>
 
 <b>Comments: </b><br>
 <% @game.comments.each do |comment| %>
     "<%= comment.body %>" -by: <b><%= comment.user.username %></b><br>
-    <%= link_to 'Edit Comment', edit_comment_path %>
-    <%= link_to 'Delete Comment', new_comment_path %>
+    <%= link_to 'Edit Comment', edit_game_comment_path(@game, comment) %>
+    <%= link_to 'Delete Comment', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
     <br><br>
  <% end %>

@@ -2,7 +2,7 @@ class User < ApplicationRecord
     has_secure_password
     has_many :games 
     has_many :received_comments, through: :games, source: :comments 
-    has_many :comments 
+    has_many :comments, dependent: :destroy 
     has_many :commented_games, through: :comments, source: :game
 
     validates :username, :email, presence: true 

@@ -36,19 +36,23 @@ class CommentsController < ApplicationController
     end
 
     def update 
-        @game = Game.find(params[:game_id])
         find_comment
         if @comment.user == current_user 
             @comment.update(comment_params)
-            redirect_to game_path(@game)
+            redirect_to game_path(@comment.game_id)
         else
             render :edit 
         end
     end
 
     def destroy 
-        @game.comment.destroy 
-        redirect_to games_path
+        find_comment 
+        if @comment.user == current_user
+            @comment.destroy 
+            redirect_to games_path
+        else
+            redirect_to games_path
+        end
     end 
 
     private 
