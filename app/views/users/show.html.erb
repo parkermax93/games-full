@@ -1,5 +1,5 @@
 <h1> Your Games and Reviews</h1>
-<% @user.games.each do |game|%>
+<% @user.games.org.each do |game|%>
     <div>
     <%= link_to game.name, game_path(game.id) %>
     </div>

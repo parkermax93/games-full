@@ -21,6 +21,13 @@
           <%= link_to "#{current_user.username}'s Profile", user_path(current_user), class:"navbar-brand"%>
           <%= link_to "Sign Out", logout_path, class:"navbar-brand", method:'delete' %>
         <% end %>
+
+        <% flash.each do |type, msg| %>
+          <div class="alert alert-warning" role-"alert" >
+            <%= msg %>
+          </div>
+        <% end %>
+        
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,6 @@
+<%= form_for [game, comment] do |f| %>
+    <%= f.label :review %>
+    <%= f.text_field :body %>
+    <br>
+    <%= f.submit "Leave Comment"%>
+<% end %>

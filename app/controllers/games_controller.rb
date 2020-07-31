@@ -1,8 +1,9 @@
 class GamesController < ApplicationController
-    before_action :find_game, :redirect_if_not_user, only: [:show, :edit, :update, :destroy]
+    before_action :find_game, only: [:show, :edit, :update, :destroy]
+    before_action :redirect_if_not_user, only: [:edit, :update, :destroy]
 
     def index
-        @games = Game.all 
+        @games = Game.org
     end
 
     def new 
