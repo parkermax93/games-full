@@ -4,13 +4,15 @@
     <title>GamesFull</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/nuclear/bulmaswatch.min.css">
+    <div class="wrapper" role="navigation">
   </head>
 
   <body>
-  <div class="wrapper" role="navigation">
+  <div class="wrapper" role="navigation" aria-lebel="main navigation">
       <div class="container">
         <% if !current_user %>
           <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
@@ -22,10 +24,8 @@
           <%= link_to "Sign Out", logout_path, class:"navbar-brand", method:'delete' %>
         <% end %>
 
-        <% flash.each do |type, msg| %>
-          <div class="alert alert-warning" role-"alert" >
-            <%= msg %>
-          </div>
+        <% flash.each do |name, message| -%>
+          <%= content_tag :div, message, class: "notification is-warning" %>
         <% end %>
         
     <%= yield %>

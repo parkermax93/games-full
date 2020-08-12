@@ -17,12 +17,12 @@ class CommentsController < ApplicationController
     end
 
     def create 
-    @game = Game.find(params[:game_id])
-    @comment = @game.comments.build(comment_params)
-    @comment.user_id = current_user.id 
+        @game = Game.find(params[:game_id])
+        @comment = @game.comments.build(comment_params)
+        @comment.user_id = current_user.id 
         if @comment.save 
             redirect_to game_path(@game)
-        else
+         else
             redirect_to new_game_comment_path(@game)
         end
     end

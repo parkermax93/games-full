@@ -1,7 +1,12 @@
 <h1> Your Games and Reviews</h1>
+<h2>Games</h2>
 <% @user.games.org.each do |game|%>
     <div>
     <%= link_to game.name, game_path(game.id) %>
     </div>
 <%end%>
 <p><%= link_to "Create A Game", new_game_path %></p>
+<h2>Comments</h2>
+<% @user.comments.each do |comment, game| %>
+    "<%= comment.body %>" on <%= comment.game.name %>.<br>
+<% end %>
