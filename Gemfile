@@ -26,6 +26,8 @@ gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 
+gem 'bulma-rails', '~> 0.9.0'
+gem 'bulma-extensions-rails'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
