@@ -3,8 +3,9 @@ class CommentsController < ApplicationController
     before_action :redirect_if_not_user, only: [:edit, :update, :destroy]
 
     def index
+    @game = Game.find_by(id: params[:game_id])
     @comments = Comment.org
-        if params[:games_id]
+        if params[:game_id]
             @comments = Game.find(params[:game_id]).comments
         else
             @comments = Comment.all

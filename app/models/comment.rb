@@ -6,4 +6,8 @@ class Comment < ApplicationRecord
     #     self.user = User.find_or_create_by(username: user_attributes[:username]) unless user_attributes[:username].blank?
     # end
     # validates :body, presence: true
+
+    def self.org
+        self.order(:name)
+    end
 end

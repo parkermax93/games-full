@@ -12,7 +12,8 @@
 
 <%= link_to 'Delete Game', @game, method: :delete, data: { confirm: 'Are you sure?' } %><br>
 
-<%= link_to "Add A Review", new_game_comment_path(@game) %><br><br>
+<%= link_to "Add A Review", new_game_comment_path(@game) %><br>
+<%= link_to 'View All Reviews', game_comments_path(@game) %><br><br>
 
 <b>Comments: </b><br>
 <% @game.comments.each do |comment| %>

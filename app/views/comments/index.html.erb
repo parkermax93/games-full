@@ -1,0 +1,6 @@
+<h1> <b>Comments</b> on <b><%= @game.name %></b></h1>
+<% @comments.each do |comment| %>
+    "<%= comment.body %>" on <%= comment.game.name %>.<br>
+    <br><%= link_to 'Edit', edit_game_comment_path(@game, comment) %>
+    <%= link_to "Delete", comment, method: :delete, data: {:confirm => 'Delete this comment?'} %><br><br>
+<% end %>
