@@ -15,4 +15,10 @@ class Game < ApplicationRecord
         self.order(:name)
     end
 
+    def self.most_popular
+        # self.left_joins(:comments).group(:id).order('COUNT(comments.id) DESC')
+        self.all.sort_by do |game|
+            game.comments.length
+        end.reverse 
+    end
 end

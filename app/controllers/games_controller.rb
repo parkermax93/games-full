@@ -3,7 +3,7 @@ class GamesController < ApplicationController
     before_action :redirect_if_not_user, only: [:edit, :update, :destroy]
 
     def index
-        @games = Game.org
+        @games = Game.most_popular
     end
 
     def new 
@@ -44,6 +44,7 @@ class GamesController < ApplicationController
         @game.destroy 
         redirect_to games_path
     end
+
 
     private 
 
